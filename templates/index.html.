@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Tienda de Laptops</title>
+</head>
+<body>
+    <h1>Catálogo de Laptops</h1>
+    {% for p in productos %}
+    <div>
+        <h3>{{ p.nombre }} - ${{ p.precio }}</h3>
+        <p>Stock disponible: {{ p.stock }}</p>
+        <form action="/comprar" method="POST">
+            <input type="hidden" name="id" value="{{ p.id }}">
+            <button type="submit">Comprar Ahora</button>
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>
